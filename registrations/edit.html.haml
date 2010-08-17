@@ -1,0 +1,26 @@
+- title 'Minha conta'
+
+.box
+  %h2 Minha conta
+    = resource_name.to_s.humanize
+
+  = form_for resource, :as => resource_name, :url => account_path, :html => { :method => :put } do |f|
+    = devise_error_messages!
+    %table.form
+      %tr
+        %td.l= f.label :email
+        %td= f.text_field :email
+      %tr
+        %td.l= f.label :password
+        %td= f.password_field :password
+      %tr
+        %td.l= f.label :password_confirmation
+        %td= f.password_field :password_confirmation
+      %tr
+        %td.l= f.label :current_password
+        %td= f.password_field :current_password
+      %tr
+        %td &nbsp;
+        %td= f.submit 'Salvar'
+
+  = link_to "Cancelar conta", cancel_account_path, :confirm => "Você tem certeza que deseja cancelar sua conta?", :method => :delete

@@ -1,0 +1,12 @@
+- title 'Recuperar senha'
+
+.box
+  %h2 Recuperar senha
+
+  = form_for resource, :as => resource_name, :url => recover_password_path, :html => { :method => :post } do |f|
+    = devise_error_messages!
+    %table.form
+      %tr
+        %td= f.label :email
+        %td= f.text_field :email
+        %td= f.submit 'Enviar instruções'

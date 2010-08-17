@@ -1,0 +1,12 @@
+- title 'Enviar confirmação'
+
+.box
+  %h2 Enviar confirmação
+
+  = form_for resource, :as => resource_name, :url => send_confirmation_path, :html => { :method => :post } do |f|
+    = devise_error_messages!
+    %table.form
+      %tr
+        %td= f.label :email
+        %td= f.text_field :email
+        %td= f.submit 'Enviar confirmação'

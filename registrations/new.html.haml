@@ -1,0 +1,28 @@
+- title 'Criar conta'
+
+.box
+  %h2 Criar conta
+
+  = form_for resource, :as => resource_name, :url => signup_path do |f|
+    = devise_error_messages!
+    %table.form
+      %tr
+        %td.l= f.label :email
+        %td= f.text_field :email
+      %tr
+        %td.l= f.label :nickname
+        %td= f.text_field :nickname
+      %tr
+        %td.l= f.label :password
+        %td= f.password_field :password
+      %tr
+        %td.l= f.label :password_confirmation
+        %td= f.password_field :password_confirmation
+      %tr
+        %td &nbsp;
+        %td
+          = f.check_box :terms_of_service, :checked => true
+          = f.label :terms_of_service, nil, :id => 'terms_of_service_label'
+      %tr
+        %td &nbsp;
+        %td= f.submit 'Criar conta'
